@@ -1,11 +1,14 @@
 import java.util.Scanner;
 import java.util.Random;
+import java.util.Arrays;
+
 public class LeJustePrix{
     public static void main(String[] args) {
         Scanner clavier = new Scanner(System.in);
         //lireEntier(12,8);
-        //générerEntierAléatBorné(4,10);
-        inscrireCandidats();
+        //générerEntierAléatBorné(0,13);
+        //inscrireCandidats();
+        choisirCandidat(inscrireCandidats());
     }
     public static int lireEntier(int min, int max ) {
         Scanner clavier = new Scanner(System.in);
@@ -28,8 +31,9 @@ public class LeJustePrix{
             throw new IllegalArgumentException("Le minimum est plus grand que le maximum :" + min + " " + max);
         }
         Random nb = new Random();
-        int nombreAleatoire = nb.nextInt(max - min + 1) + min;
-        System.out.println(nombreAleatoire);
+        int nombreAleatoire = nb.nextInt(13);
+        System.out.println();
+        System.out.println("fils prodige :"+nombreAleatoire);
         return max;
     }
     public static String[] inscrireCandidats(){
@@ -38,6 +42,15 @@ public class LeJustePrix{
         for(int i=0; i<panel.length;i++){
         System.out.print(panel[i]+" ");
         }
+        System.out.println();
         return panel;
+    }
+    public static String choisirCandidat(String[] panel){
+        Random nb = new Random();
+        int asac = nb.nextInt(13);
+        System.out.println("nb borné :"+ asac);
+        panel[asac] = "null";
+        System.out.println(Arrays.toString(panel));
+        return null;
     }
 }
