@@ -4,7 +4,8 @@ public class LeJustePrix{
     public static void main(String[] args) {
         Scanner clavier = new Scanner(System.in);
         //lireEntier(12,8);
-        générerEntierAléatBorné(4,10);
+        //générerEntierAléatBorné(4,10);
+        inscrireCandidats();
     }
     public static int lireEntier(int min, int max ) {
         Scanner clavier = new Scanner(System.in);
@@ -31,5 +32,12 @@ public class LeJustePrix{
         System.out.println(nombreAleatoire);
         return max;
     }
-
+    public static String[] inscrireCandidats(){
+        String[] panel = new String[]{"J01","J02","J03","J04","J05",
+        "J06","J07","J08","J09","J10","J11","J12","J13","J14"};
+        for(int i=0; i<panel.length;i++){
+        System.out.print(panel[i]+" ");
+        }
+        return panel;
+    }
 }
