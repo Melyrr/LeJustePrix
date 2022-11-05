@@ -8,7 +8,8 @@ public class LeJustePrix{
         //lireEntier(12,8);
         //générerEntierAléatBorné(0,13);
         //inscrireCandidats();
-        choisirCandidat(inscrireCandidats());
+        //choisirCandidat(inscrireCandidats());
+        formerPupitre(inscrireCandidats());
     }
     public static int lireEntier(int min, int max ) {
         Scanner clavier = new Scanner(System.in);
@@ -39,18 +40,37 @@ public class LeJustePrix{
     public static String[] inscrireCandidats(){
         String[] panel = new String[]{"J01","J02","J03","J04","J05",
         "J06","J07","J08","J09","J10","J11","J12","J13","J14"};
-        for(int i=0; i<panel.length;i++){
-        System.out.print(panel[i]+" ");
-        }
         System.out.println();
         return panel;
     }
+    
     public static String choisirCandidat(String[] panel){
+        Scanner clavier = new Scanner(System.in);
         Random nb = new Random();
-        int asac = nb.nextInt(13);
-        System.out.println("nb borné :"+ asac);
-        panel[asac] = "null";
+        System.out.println("Combien d'entier voulez vous générer");
+        int zero=0;
+        for(int i=clavier.nextInt();zero<i;zero++){
+            int CandidatRandom = nb.nextInt(13);
+            if(panel[CandidatRandom] == "null"){
+                CandidatRandom = nb.nextInt(13);
+                panel[CandidatRandom] = "nulos";
+            }else{
+                panel[CandidatRandom] = "null";
+            }
+        }
         System.out.println(Arrays.toString(panel));
-        return null;
-    }
-}
+        return null;}
+    public static  String[]  formerPupitre(String[] panel){
+        String[] pupitre = new String[]{"null","null","null","null"};
+        choisirCandidat(panel);
+        int n =0;
+        for(int i=0;i<panel.length;i++){
+            if(panel[i] == "null" || panel[i] == "nulos" ){
+                int zecandidat = i;
+                pupitre[n] = Integer.toString(zecandidat);
+                System.out.println(i);
+                n=n+1;
+            }}
+    System.out.println(Arrays.toString(pupitre));
+        return pupitre;
+    }}
