@@ -82,10 +82,7 @@ public class LeJustePrix{
                 throw new IllegalArgumentException("L'estimation n'est pas postif ou est égal à 0.");
             }
             return false;
-    }
-    
-    
-    
+    }  
     public static int positionMeilleureEstimation(int prixSecret, int[] estimations){
         Scanner clavier = new Scanner(System.in);
         int[] comparé = new int[]{0,0,0,0,prixSecret};
@@ -93,11 +90,24 @@ public class LeJustePrix{
         for(int a=0;a<estimations.length;a++){
             estimations[a] =clavier.nextInt();
             comparé[a] =  estimations[a] -prixSecret ;
-            if(comparé[a]<0){
         }
-    }
-    System.out.println(Arrays.toString(estimations)); 
-    System.out.println(Arrays.toString(comparé));  
-        return prixSecret;
+        int bestDistanceFoundYet = Integer.MAX_VALUE;
+        int nearest=-1;
+        for (int i = 0; i < comparé.length; i++) {
+            if (comparé[i] == prixSecret) {
+              return comparé[i];
+            } else {
+              int d = Math.abs(prixSecret - comparé[i]);
+              if (d < bestDistanceFoundYet) {
+                bestDistanceFoundYet = d;
+                nearest = comparé[i];
+              }
+            }        
+            System.out.println(nearest);
+}
+        System.out.println(nearest);
+        System.out.println(Arrays.toString(estimations)); 
+        System.out.println(Arrays.toString(comparé));
+        return nearest;
 }
 }
